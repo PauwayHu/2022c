@@ -101,3 +101,60 @@ int main()
     if("a==0") printf("不管什麼東西,幾乎都成立\n");
 }
 ```
+# Week07
+## 要用 long long int
+```cpp
+#include <stdio.h>
+int main()
+{
+    int n = 123456789123456789;
+    printf("%d\n",n);
+    long long int a =123456789123456789;
+    printf("%lld",a);
+}
+```
+# 有了long long int 那我們便能回來複習最大公因數了
+```cpp
+#include <stdio.h>
+int main()
+{
+    long long int a,b;
+    scanf("%lld %lld",&a,&b);
+
+    long long int ans;
+    for(long long int i=1;i<=a;i++){
+        if(a%i==0 && b%i==0) ans = i;
+    }
+    printf("答案是:%lld",ans);
+}
+```
+# 輾轉的意是,是老二變老大, 老三變老二, 利用while(1)持續去做。
+```cpp
+#include <stdio.h>
+int main()
+{
+    long long int a,b,c;
+    scanf("%lld%lld",&a,&b);
+
+    while(1){
+        c = a%b;
+        if(c==0) break;
+        a=b;
+        b=c;
+    }
+    printf("答案是:%lld\n",b);
+}
+```
+# 是使用while迴圈來剝皮的程式,把每一位數取出來
+```cpp
+#include <stdio.h>
+int main()
+{
+    int n=1234;
+
+    while( n>0 ){
+        printf("個位數是%d\n",n%10);
+        n = n/10;
+    }
+}
+```
